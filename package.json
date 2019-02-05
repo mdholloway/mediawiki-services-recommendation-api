@@ -39,6 +39,7 @@
     "express": "^4.16.4",
     "http-shutdown": "^1.2.0",
     "js-yaml": "^3.12.0",
+    "lodash": "^4.17.11",
     "mysql": "^2.16.0",
     "preq": "^0.5.6",
     "service-runner": "^2.6.4",

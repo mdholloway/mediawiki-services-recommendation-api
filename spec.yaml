@@ -193,3 +193,45 @@ paths:
             status: 501
             headers:
               content-type: application/json
+  # From routes/description.translation.js
+  /{domain}/v1/description/translation/{source}{/n}:
+    get:
+      tags:
+        - Recommendation
+      summary: Recommend description to translate from a source language
+      description: |
+        Adds an endpoint for suggesting Wikipedia articles in a target language
+        for which a description is needed for the corresponding Wikidata entity,
+        given that an article referring to the same Wikidata entity exists in
+        another language and also has a description in that language.
+
+        Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)
+      produces:
+        - application/json
+        - application/problem+json
+      parameters:
+        - name: domain
+          in: path
+          description: The target domain
+          type: string
+          required: true
+        - name: source
+          in: path
+          description: The source language code
+          type: string
+          required: true
+        - name: n
+          in: path
+          description: The number of results requested
+          type: string
+          required: false
+      x-amples:
+        - title: description.translation
+          request:
+            params:
+              source: en
+              domain: de.wikipedia.org
+          response:
+            status: 200
+            headers:
+              content-type: application/json
